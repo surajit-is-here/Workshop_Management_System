@@ -1,17 +1,19 @@
 from fastapi import FastAPI
+
 from backend.config import settings
 
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
+    debug=settings.DEBUG,
 )
 
 
 @app.get("/")
-def root():
-    return {"message": "Workshop Management System API is running"}
+async def root():
+    return {"message": f"Welcome to {settings.APP_NAME}"}
 
 
 @app.get("/health")
-def health():
+async def health():
     return {"status": "healthy"}
