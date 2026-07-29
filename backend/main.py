@@ -1,8 +1,9 @@
 from fastapi import FastAPI
+from backend.config import settings
 
 app = FastAPI(
-    title="Workshop Management System",
-    version="1.0.0",
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
 )
 
 
